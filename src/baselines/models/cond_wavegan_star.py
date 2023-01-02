@@ -23,7 +23,7 @@ class Transpose1dLayer(nn.Module):
             return self.Conv1dTrans(x)
 
 
-class WaveGANCondGenerator(nn.Module):
+class CondWaveGANGenerator(nn.Module):
     def __init__(self, model_size=50, ngpus=1, num_channels=8,
                  latent_dim=1000, post_proc_filt_len=512,
                  verbose=False, upsample=True):
@@ -161,7 +161,7 @@ class PhaseRemove(nn.Module):
         pass
 
 
-class WaveGANCondDiscriminator(nn.Module):
+class CondWaveGANDiscriminator(nn.Module):
     def __init__(self, model_size=64, ngpus=1, num_channels=8, shift_factor=2,
                  alpha=0.2, verbose=False):
         super(WaveGANDiscriminator, self).__init__()
