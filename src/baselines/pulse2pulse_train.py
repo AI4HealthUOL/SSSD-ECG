@@ -1,7 +1,3 @@
-#==============================================================
-# Reference: https://github.com/mazzzystar/WaveGAN-pytorch
-#==============================================================
-
 import argparse
 import os
 from tqdm import tqdm
@@ -21,10 +17,9 @@ from torch import autograd
 
 # Model specific
 
-from data.ecg_data_loader import ECGDataSimple as ecg_data
-from models.pulse2pulse import WaveGANGenerator as Pulse2PuseGenerator
-from models.pulse2pulse import WaveGANDiscriminator as Pulse2PulseDiscriminator
-from utils.utils import calc_gradient_penalty, get_plots_RHTM_10s, get_plots_all_RHTM_10s
+from models.pulse2pulse import CondP2PGenerator 
+from models.pulse2pulse import CondP2PDiscriminator
+from utils.utils import calc_gradient_penalty
 
 torch.manual_seed(0)
 np.random.seed(0)
@@ -33,23 +28,20 @@ parser = argparse.ArgumentParser()
 # Hardware
 parser.add_argument("--device_id", type=int, default=0, help="Device ID to run the code")
 
-parser.add_argument("--exp_name", type=str, default="all_labels_uncond_p2p", 
+parser.add_argument("--exp_name", type=str, default="p2p", 
                     help="A name to the experiment which is used to save checkpoitns and tensorboard output")
-
-# parser.add_argument("--py_file",default=os.path.abspath(__file__)) # store current python file
 
 
 #==============================
 # Directory and file handling
 #==============================
-#parser.add_argument("--data_dirs", default=["/user/leal6863/DEEPFAKE/Pulse2Pulse-main/sample_ecg_data"], help="Data roots", nargs="*")
 
 parser.add_argument("--out_dir", 
-                    default="P2P_COND",
+                    default="P2P",
                     help="Main output dierectory")
 
 parser.add_argument("--tensorboard_dir", 
-                    default="P2P_COND",
+                    default="P2P",
                     help="Folder to save output of tensorboard")
 
 
@@ -62,12 +54,12 @@ parser.add_argument("--b1", type=float, default=0.5, help="adam: decay of first 
 parser.add_argument("--b2", type=float, default=0.9, help="adam: decay of first order momentum of gradient")
 
 parser.add_argument("--num_epochs", type=int, default=3000, help="number of epochs of training")
-parser.add_argument("--start_epoch", type=int, default=2540, help="Start epoch in retraining")
+parser.add_argument("--start_epoch", type=int, default=0, help="Start epoch in retraining")
 parser.add_argument("--ngpus", type=int, default=1, help="Number of GPUs used in models")
 parser.add_argument("--checkpoint_interval", type=int, default=20, help="Interval to save checkpoint models")
 
 # Checkpoint path to retrain or test models
-parser.add_argument("--checkpoint_path", default="/user/leal6863/DEEPFAKE_COND/Pulse2Pulse-main/P2P_COND/all_labels_uncond_p2p/checkpoints/checkpoint_epoch:2540.pt", help="Check point path to retrain or test models")
+parser.add_argument("--checkpoint_path", default="checkpoint_epoch:3000.pt", help="Check point path to retrain or test models")
 
 parser.add_argument('-ms', '--model_size', type=int, default=50,
                         help='Model size parameter used in WaveGAN')
@@ -76,7 +68,7 @@ parser.add_argument('--lmbda', default=10.0, help="Gradient penalty regularizati
 # Action handling 
 parser.add_argument("--action", 
                     type=str, 
-                    default='retrain', 
+                    default='train', 
                     help="Select an action to run", 
                     choices=["train", "retrain", "inference", "check"])
 
@@ -109,58 +101,28 @@ tensorboard_exp_dir = os.path.join(opt.tensorboard_dir, opt.exp_name)
 os.makedirs( tensorboard_exp_dir, exist_ok=True)
 
 
-
-#==========================================
-# Tensorboard
-#==========================================
-# Initialize summary writer
-#writer = SummaryWriter(tensorboard_exp_dir)
-
-
 #==========================================
 # Prepare Data
 #==========================================
 
 
-'''
 def prepare_data():
-    dataset =  ecg_data(opt.data_dirs, norm_num=6000, cropping=None, transform=None)
-    print(dataset.keys())
-    print("Dataset size=", len(dataset))
-    
-    dataloader = torch.utils.data.DataLoader( dataset,
-        batch_size=opt.bs,
-        shuffle=True,
-        num_workers=8)
-
-    return dataloader'''
-
-
-
-def prepare_data():
-    dataset = np.load('/user/leal6863/ECGDATASETS/PTBXL/ptbxl_train_data.npy')
+    dataset = np.load('ptbxl_train_data.npy')
    
     
     index_8 = torch.tensor([0,2,3,4,5,6,7,11])
     index_4 = torch.tensor([1,8,9,10])
     
     dataset = torch.index_select(torch.from_numpy(dataset), 1, index_8).float()
-    labels = np.load('/user/leal6863/ECGDATASETS/PTBXL/ptbxl_train_labels.npy')
+    labels = np.load('ptbxl_train_labels.npy')
     
     data = []
     
     for signal, label in zip(dataset, labels):
         data.append([signal, label])
-        
     
-    dataloader = torch.utils.data.DataLoader(data, batch_size=opt.bs, shuffle=True)
-    
-    
+    dataloader = torch.utils.data.DataLoader(data, batch_size=opt.bs, shuffle=True)    
     return dataloader
-
-
-
-
 
 #===============================================
 # Prepare models
@@ -312,22 +274,9 @@ def train(netG, netD, optimizerG, optimizerD, dataloader):
                 #G_cost_epoch.append(G_cost_cpu.data.numpy())
                 train_G_flag =False
 
-                #print("real ecg:", real_ecgs.shape)
-                #print("fake ecg:", fake.shape)
-            #if i == 0: # take the first batch to plot
-                #real_ecgs_to_plot = real_ecgs
-                #fake_to_plot = fake
-            #    break
-        #print(G_cost_epoch)
-
         D_cost_train_epoch_avg = sum(D_cost_train_epoch) / float(len(D_cost_train_epoch))
         D_wass_train_epoch_avg = sum(D_wass_train_epoch) / float(len(D_wass_train_epoch))
         G_cost_epoch_avg = sum(G_cost_epoch) / float(len(G_cost_epoch))
-
-        
-        #writer.add_scalar("D_cost_train_epoch_avg",D_cost_train_epoch_avg ,epoch)
-        #writer.add_scalar("D_wass_train_epoch_avg",D_wass_train_epoch_avg ,epoch)
-        #writer.add_scalar("G_cost_epoch_avg ",G_cost_epoch_avg  ,epoch)
 
         print("Epochs:{}\t\tD_cost:{}\t\t D_wass:{}\t\tG_cost:{}".format(
                     epoch, D_cost_train_epoch_avg, D_wass_train_epoch_avg, G_cost_epoch_avg))
@@ -335,12 +284,6 @@ def train(netG, netD, optimizerG, optimizerD, dataloader):
          # Save model
         if epoch % opt.checkpoint_interval == 0:
             save_model(netG, netD, optimizerG, optimizerD, epoch)
-            #fig = get_plots_RHTM_10s(real_ecgs_to_plot[0].detach().cpu(), fake_to_plot[0].detach().cpu())
-            #fig_2 = get_plots_all_RHTM_10s(real_ecgs_to_plot.detach().cpu(), fake_to_plot.detach().cpu())
-
-            #writer.add_figure("sample", fig, epoch)
-            #writer.add_figure("sample_batch", fig_2, epoch)
-        #fig.savefig("{}.png".format(epoch))
 
 
 #=====================================
@@ -356,20 +299,16 @@ def save_model(netG, netD, optimizerG, optimizerD,  epoch):
         "netG_state_dict": netG.state_dict(),
         "netD_state_dict": netD.state_dict(),
         "optimizerG_state_dict": optimizerG.state_dict(),
-        "optimizerD_state_dict": optimizerD.state_dict(),
-        # "train_loss": train_loss,
-        #"val_loss": validation_loss
-    }, check_point_path)
+        "optimizerD_state_dict": optimizerD.state_dict()}, 
+      check_point_path)
 
+    
 #====================================
 # Re-train process
 #====================================
 def run_retrain():
     print("run retrain started........................")
     netG, netD = prepare_model()
-
-    #netG.cpu()
-    #netD.cpu()
 
     # loading checkpoing
     chkpnt = torch.load(opt.checkpoint_path, map_location="cpu")
