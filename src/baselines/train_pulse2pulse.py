@@ -10,7 +10,6 @@ from torch.optim import lr_scheduler
 import torch.nn as nn
 from torchvision import models, transforms
 from torchvision.utils import save_image
-#from torch.utils.tensorboard import SummaryWriter
 from torch.autograd import Variable
 from torchsummary import summary
 from torch import autograd
@@ -366,6 +365,3 @@ if __name__ == "__main__":
     elif opt.action == "check":
         check_model_graph()
         print("Check pass")
-
-    # Finish tensorboard writer
-    #writer.close()
