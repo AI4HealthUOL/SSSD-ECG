@@ -128,8 +128,8 @@ def prepare_data():
 # Prepare models
 #===============================================
 def prepare_model():
-    netG = Pulse2PuseGenerator(model_size=opt.model_size, ngpus=opt.ngpus, upsample=True)
-    netD = Pulse2PulseDiscriminator(model_size=opt.model_size, ngpus=opt.ngpus)
+    netG = CondP2PGenerator(model_size=opt.model_size, ngpus=opt.ngpus, upsample=True)
+    netD = CondP2PDiscriminator(model_size=opt.model_size, ngpus=opt.ngpus)
 
     netG = netG.to(device)
     netD = netD.to(device)
