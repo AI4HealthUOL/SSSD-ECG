@@ -42,7 +42,7 @@ class Transpose1dLayer_multi_input(nn.Module):
             return self.Conv1dTrans(x)
 
 
-class P2PCondGenerator(nn.Module):
+class CondP2PGenerator(nn.Module):
     def __init__(self, model_size=50, ngpus=1, num_channels=8,
                  post_proc_filt_len=512,
                  verbose=False, upsample=True):
@@ -174,7 +174,7 @@ class PhaseRemove(nn.Module):
         pass
 
 
-class P2PCondDiscriminator(nn.Module):
+class CondP2PDiscriminator(nn.Module):
     def __init__(self, model_size=64, ngpus=1, num_channels=8, shift_factor=2,
                  alpha=0.2, verbose=False):
         super(WaveGANDiscriminator, self).__init__()
