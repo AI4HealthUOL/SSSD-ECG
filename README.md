@@ -1,6 +1,6 @@
 # Diffusion-based Conditional ECG Generation with Structured State Space Models
 
-This is the official repository for the paper [Diffusion-based Conditional ECG Generation with Structured State Space Models](https://arxiv.org/abs/2208.09399). We propose diverse algorithms for conditional ECG signals generation, primarly SSSD-ECG.
+This is the official repository for the paper [Diffusion-based Conditional ECG Generation with Structured State Space Models](https://arxiv.org/abs/2208.09399). We propose diverse algorithms for the generation of 12-lead ECG signals conditioned on disease labels, primarly SSSD-ECG.
 
 
 ![alt text](https://github.com/AI4HealthUOL/SSSD-ECG/blob/main/clinical%20evaluation/diagnosis%20on%20normal%20samples/plots/reports/SSSD.png?style=centerme)
