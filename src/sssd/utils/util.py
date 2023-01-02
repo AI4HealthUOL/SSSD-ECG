@@ -121,7 +121,7 @@ def calc_diffusion_hyperparams(T, beta_0, beta_T):
 
   
   
-def sampling(net, size, diffusion_hyperparams, cond, mask, only_generate_missing=0, guidance_weight=0):
+def sampling_label(net, size, diffusion_hyperparams, cond, mask):
     """
     Perform the complete sampling step according to p(x_0|x_T) = \prod_{t=1}^T p_{\theta}(x_{t-1}|x_t)
 
@@ -160,11 +160,6 @@ def sampling(net, size, diffusion_hyperparams, cond, mask, only_generate_missing
 
     return x
 
-
-
-
-
-    
     
 def training_loss_label(net, loss_fn, X, diffusion_hyperparams):
     
