@@ -31,7 +31,6 @@
         "batch_size":8,
     },
     "trainset_config":{
-        "data_path": "/user/leal6863/ECG_label_cond_paper/src/datasets",
         "segment_length":1000,
         "sampling_rate": 100,
         "finetune_dataset":"ptbxl_all"
