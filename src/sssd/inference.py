@@ -13,13 +13,11 @@ def generate_four_leads(tensor):
     leadschest = tensor[:,1:7,:]
     leadavf = tensor[:,7,:].unsqueeze(1)
 
-
     leadII = (0.5*leadI) + leadavf
 
     leadIII = -(0.5*leadI) + leadavf
     leadavr = -(0.75*leadI) -(0.5*leadavf)
     leadavl = (0.75*leadI) - (0.5*leadavf)
-
 
     leads12 = torch.cat([leadI, leadII, leadschest, leadIII, leadavr, leadavl, leadavf], dim=1)
 
