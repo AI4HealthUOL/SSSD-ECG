@@ -1,0 +1,45 @@
+trials,train set index,lbl_codes,lbls,y_true_diagnostic,y_true_synthetic,y_pred_diagnostic,y_pred_synthetic
+1,2.0,NORM_SR,"normal, sinus rhythm",True,False,True,False
+1,,NORM_SR,"normal, sinus rhythm",True,True,False,True
+2,15.0,NDT_SR,"non-diagnostic T abnormalities, sinus rhythm",True,False,False,False
+2,,NDT_SR,"non-diagnostic T abnormalities, sinus rhythm",True,True,True,False
+3,,ABQRS_IMI_SR,"abnormal qrs, inferior myocardial infarction, sinus rhythm",True,True,True,False
+3,587.0,ABQRS_IMI_SR,"abnormal qrs, inferior myocardial infarction, sinus rhythm",True,False,False,True
+4,,NORM_SARRH,"normal, sinus arrhythmia",True,True,True,False
+4,7.0,NORM_SARRH,"normal, sinus arrhythmia",True,False,True,False
+5,143.0,LAFB_SR,"left anterior fascicular block, sinus rhythm",True,False,False,True
+5,,LAFB_SR,"left anterior fascicular block, sinus rhythm",True,True,True,False
+6,,NORM_SBRAD,"normal, sinus bradycardia",True,True,True,False
+6,1.0,NORM_SBRAD,"normal, sinus bradycardia",True,False,True,True
+7,266.0,PACE,normal functioning artificial pacemaker,True,False,True,False
+7,,PACE,normal functioning artificial pacemaker,True,True,True,True
+8,189.0,CLBBB_SR,"complete left bundle branch block, sinus rhythm",True,False,True,False
+8,,CLBBB_SR,"complete left bundle branch block, sinus rhythm",True,True,False,True
+9,539.0,LVH_SR_VCLVH,"left ventricular hypertrophy, sinus rhythm, voltage criteria (QRS) for left ventricular hypertrophy",True,False,False,False
+9,,LVH_SR_VCLVH,"left ventricular hypertrophy, sinus rhythm, voltage criteria (QRS) for left ventricular hypertrophy",True,True,False,True
+10,,NORM,normal,True,True,True,False
+10,194.0,NORM,normal,True,False,False,False
+11,,IRBBB_SR,"incomplete right bundle branch block, sinus rhythm",True,True,True,False
+11,32.0,IRBBB_SR,"incomplete right bundle branch block, sinus rhythm",True,False,False,True
+12,,ABQRS_NORM_SR,"abnormal qrs, normal, sinus rhythm",True,True,True,False
+12,46.0,ABQRS_NORM_SR,"abnormal qrs, normal, sinus rhythm",True,False,True,False
+13,150.0,IRBBB_NORM_SR,"incomplete right bundle branch block, normal, sinus rhythm",True,False,True,False
+13,,IRBBB_NORM_SR,"incomplete right bundle branch block, normal, sinus rhythm",True,True,False,False
+14,74.0,NORM_STACH,"normal, sinus tachycardia",True,False,False,False
+14,,NORM_STACH,"normal, sinus tachycardia",True,True,True,False
+15,,IMI_SR,"inferior myocardial infarction, sinus rhythm",True,True,False,False
+15,93.0,IMI_SR,"inferior myocardial infarction, sinus rhythm",True,False,True,False
+16,2322.0,ISC__LVH_SR,"non-specific ischemic, left ventricular hypertrophy, sinus rhythm",True,False,True,False
+16,,ISC__LVH_SR,"non-specific ischemic, left ventricular hypertrophy, sinus rhythm",True,True,True,False
+17,,ABQRS_ASMI_SR,"abnormal qrs, anteroseptal myocardial infarction, sinus rhythm",True,True,True,False
+17,87.0,ABQRS_ASMI_SR,"abnormal qrs, anteroseptal myocardial infarction, sinus rhythm",True,False,False,False
+18,,NST__SR,"non-specific ST changes, sinus rhythm",True,True,False,False
+18,311.0,NST__SR,"non-specific ST changes, sinus rhythm",True,False,True,False
+19,,NDT_NT__SR,"non-diagnostic T abnormalities, non-specific T-wave changes, sinus rhythm",True,True,True,False
+19,180.0,NDT_NT__SR,"non-diagnostic T abnormalities, non-specific T-wave changes, sinus rhythm",True,False,False,False
+20,3143.0,ABQRS_ASMI_IMI_SR,"abnormal qrs, anteroseptal myocardial infarction, inferior myocardial infarction, sinus rhythm",True,False,False,False
+20,,ABQRS_ASMI_IMI_SR,"abnormal qrs, anteroseptal myocardial infarction, inferior myocardial infarction, sinus rhythm",True,True,True,True
+21,63.0,LVH_SR,"left ventricular hypertrophy, sinus rhythm",True,False,False,False
+21,,LVH_SR,"left ventricular hypertrophy, sinus rhythm",True,True,False,False
+22,,AFIB_NST_,"atrial fibrillation, non-specific ST changes",True,True,True,False
+22,243.0,AFIB_NST_,"atrial fibrillation, non-specific ST changes",True,False,False,True
