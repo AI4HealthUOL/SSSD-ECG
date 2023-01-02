@@ -118,10 +118,8 @@ def calc_diffusion_hyperparams(T, beta_0, beta_T):
     diffusion_hyperparams = _dh
     return diffusion_hyperparams
 
-
   
-  
-def sampling_label(net, size, diffusion_hyperparams, cond, mask):
+def sampling_label(net, size, diffusion_hyperparams, cond=None):
     """
     Perform the complete sampling step according to p(x_0|x_T) = \prod_{t=1}^T p_{\theta}(x_{t-1}|x_t)
 
@@ -131,6 +129,8 @@ def sampling_label(net, size, diffusion_hyperparams, cond, mask):
                                     usually is (number of audios to generate, channels=1, length of audio)
     diffusion_hyperparams (dict):   dictionary of diffusion hyperparameters returned by calc_diffusion_hyperparams
                                     note, the tensors need to be cuda tensors 
+    cond: conditioning as integer tensor
+    guidance_weight: weight for classifier-free guidance (if trained with conditioning_dropout>0)
     
     Returns:
     the generated audio(s) in torch.tensor, shape=size
@@ -142,25 +142,21 @@ def sampling_label(net, size, diffusion_hyperparams, cond, mask):
     assert len(Alpha_bar) == T
     assert len(Sigma) == T
     assert len(size) == 3
-
+    
     print('begin sampling, total number of reverse steps = %s' % T)
 
     x = std_normal(size)
-
     with torch.no_grad():
-        for t in range(T - 1, -1, -1):
-            if only_generate_missing == 1:
-                x = x * (1 - mask).float() + cond * mask.float()
+        for t in range(T-1, -1, -1):
             diffusion_steps = (t * torch.ones((size[0], 1))).cuda()  # use the corresponding reverse step
-            epsilon_theta = net((x, cond, mask, diffusion_steps,))  # predict \epsilon according to \epsilon_\theta
-            # update x_{t-1} to \mu_\theta(x_t)
-            x = (x - (1 - Alpha[t]) / torch.sqrt(1 - Alpha_bar[t]) * epsilon_theta) / torch.sqrt(Alpha[t])
+            epsilon_theta = net((x, cond, diffusion_steps,))  # predict \epsilon according to \epsilon_\theta
+                
+            x = (x - (1-Alpha[t])/torch.sqrt(1-Alpha_bar[t]) * epsilon_theta) / torch.sqrt(Alpha[t])  # update x_{t-1} to \mu_\theta(x_t)
             if t > 0:
                 x = x + Sigma[t] * std_normal(size)  # add the variance term to x_{t-1}
-
     return x
 
-    
+
 def training_loss_label(net, loss_fn, X, diffusion_hyperparams):
     
     """
@@ -189,16 +185,3 @@ def training_loss_label(net, loss_fn, X, diffusion_hyperparams):
     epsilon_theta = net((transformed_X, label, diffusion_steps.view(B,1),))  
     
     return loss_fn(epsilon_theta, z)
-    
-
-   
-  
-
-
-
-
-
-
-
-
-
