@@ -2,8 +2,11 @@
 
 This is the official repository for the paper [Diffusion-based Conditional ECG Generation with Structured State Space Models](https://arxiv.org/abs/2208.09399). We propose diverse algorithms for conditional ECG signals generation, primarly SSSD-ECG.
 
-## Datasets and experiments
-Visit the source directory to get our experiments source code. Similarly, visit [this link](https://arxiv.org/abs/2208.09399) to obtain a synthetic twin of the PTB-XL dataset.
+## Experiments
+Visit the clinical evaluation directory to get the medical expert results, and the source directory to get our experiments source code.
+
+## Dataset
+Follow [this link]((https://arxiv.org/abs/2208.09399) to obtain the PTB-XL dataset, and [this link](https://arxiv.org/abs/2208.09399) to obtain a synthetic twin of the PTB-XL dataset.
 
 
 ### Please cite our publication if you found our research to be helpful.
