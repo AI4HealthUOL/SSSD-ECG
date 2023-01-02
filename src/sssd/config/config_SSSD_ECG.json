@@ -1,0 +1,43 @@
+{   
+    "diffusion_config":{
+        "T": 200,
+        "beta_0": 0.0001,
+        "beta_T": 0.02
+    },
+    "wavenet_config": {
+        "in_channels": 8,
+        "out_channels":8,
+        "num_res_layers": 36,
+        "res_channels": 256,
+        "skip_channels": 256,
+        "diffusion_step_embed_dim_in": 128,
+        "diffusion_step_embed_dim_mid": 512,
+        "diffusion_step_embed_dim_out": 512,
+        "s4_lmax": 1000,
+        "s4_d_state":64,
+        "s4_dropout":0.0,
+        "s4_bidirectional":1,
+        "s4_layernorm":1,
+        "label_embed_dim":128,
+        "label_embed_classes":71
+    },
+    "train_config": {
+        "output_directory": "sssd_label_cond",
+        "ckpt_iter": "max",
+        "iters_per_ckpt": 4000,
+        "iters_per_logging": 100,
+        "n_iters": 100000,
+        "learning_rate": 2e-4,
+        "batch_size":8,
+    },
+    "trainset_config":{
+        "data_path": "/user/leal6863/ECG_label_cond_paper/src/datasets",
+        "segment_length":1000,
+        "sampling_rate": 100,
+        "finetune_dataset":"ptbxl_all"
+    },
+    "gen_config":{
+        "output_directory": "sssd_label_cond",
+        "ckpt_path": "sssd_label_cond/",
+    }
+}
