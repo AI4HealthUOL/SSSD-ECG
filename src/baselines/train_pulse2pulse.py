@@ -17,8 +17,8 @@ from torch import autograd
 
 # Model specific
 
-from models.pulse2pulse import CondP2PGenerator 
-from models.pulse2pulse import CondP2PDiscriminator
+from models.cond_pulse2pulse import CondP2PGenerator 
+from models.cond_pulse2pulse import CondP2PDiscriminator
 from utils.utils import calc_gradient_penalty
 
 torch.manual_seed(0)
