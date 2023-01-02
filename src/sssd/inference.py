@@ -96,8 +96,7 @@ def generate(output_directory,
 
         generated_audio = sampling_label(net, (num_samples,8,1000), 
                                diffusion_hyperparams,
-                               cond=cond,
-                               guidance_weight=0)
+                               cond=cond)
 
         generated_audio12 = generate_four_leads(generated_audio)
 
