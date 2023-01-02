@@ -10,7 +10,7 @@ This is the official repository for the paper [Diffusion-based Conditional ECG G
 Visit the clinical evaluation directory to get the medical expert results, and the source directory to get our experiments source code.
 
 ## Dataset
-Follow [this link](https://arxiv.org/abs/2208.09399) to obtain the PTB-XL dataset, and [this link](https://arxiv.org/abs/2208.09399) to obtain a synthetic twin of the PTB-XL dataset.
+Follow [this link](https://mega.nz/folder/UfUDFYjS#YYUJ3CCUGb6ZNmJdCZLseg) to obtain the real PTB-XL dataset, and [this link](https://mega.nz/folder/NbMGARLA#Y7X0rjAfDnPotbU-xYRTEg) to obtain a synthetic twin of the PTB-XL dataset.
 
 
 ### Please cite our publication if you found our research to be helpful.
