@@ -2,15 +2,14 @@
 
 This is the official repository for the paper [Diffusion-based Conditional ECG Generation with Structured State Space Models](https://arxiv.org/abs/2208.09399). We propose diverse algorithms (primarly SSSD-ECG) for the generation of 12-lead ECG signals conditioned on disease labels.
 
+## Dataset and pre-trained model
+
 
 ![alt text](https://github.com/AI4HealthUOL/SSSD-ECG/blob/main/clinical%20evaluation/diagnosis%20on%20normal%20samples/plots/reports/SSSD.png?style=centerme)
 
 
 ## Experiments
 Visit the clinical evaluation directory to get the medical expert results, and the source directory to get our experiments source code.
-
-## Dataset
-Follow [this link](https://mega.nz/folder/UfUDFYjS#YYUJ3CCUGb6ZNmJdCZLseg) to obtain the real PTB-XL dataset, and [this link](https://mega.nz/folder/NbMGARLA#Y7X0rjAfDnPotbU-xYRTEg) to obtain a synthetic twin of the PTB-XL dataset.
 
 
 ### Please cite our publication if you found our research to be helpful.
