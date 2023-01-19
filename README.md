@@ -4,9 +4,9 @@ This is the official repository for the paper [Diffusion-based Conditional ECG G
 
 ## Dataset and pre-trained model
 
-!\[my badge\](https://img.shields.io/badge/Dataset-10.6084%2Fm9.figshare.21922947-red)
+![my badge](https://img.shields.io/badge/Dataset-10.6084%2Fm9.figshare.21922947-red)
 
-!\[my badge\](https://img.shields.io/badge/Model-10.6084%2Fm9.figshare.21922875-red)
+![my badge](https://img.shields.io/badge/Model-10.6084%2Fm9.figshare.21922875-red)
 
 
 
