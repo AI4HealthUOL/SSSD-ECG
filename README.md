@@ -15,10 +15,6 @@ This is the official repository for the paper [Diffusion-based Conditional ECG G
 ![alt text](https://github.com/AI4HealthUOL/SSSD-ECG/blob/main/clinical%20evaluation/diagnosis%20on%20normal%20samples/plots/reports/SSSD.png?style=centerme)
 
 
-## Experiments
-Visit the clinical evaluation directory to get the medical expert results, and the source directory to get our experiments source code.
-
-
 ### Please cite our publication if you found our research to be helpful.
 
 ```bibtex
