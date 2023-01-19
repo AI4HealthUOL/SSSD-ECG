@@ -7,15 +7,9 @@ This is the official repository for the paper [Diffusion-based Conditional ECG G
 
 <a href="https://figshare.com/s/43df16e4a50e4dd0a0c5" alt="GitHub issues by-label">
   <img src="https://img.shields.io/badge/Dataset-10.6084%2Fm9.figshare.21922947-red" /></a>
-  
-  
 <a href="https://figshare.com/s/81834b24a4711c2a5c55" alt="GitHub issues by-label">
   <img src="https://img.shields.io/badge/Model-10.6084%2Fm9.figshare.21922875-red" /></a>
-  
-  
-![my badge](https://img.shields.io/badge/Dataset-10.6084%2Fm9.figshare.21922947-red)
-![my badge](https://img.shields.io/badge/Model-10.6084%2Fm9.figshare.21922875-red)
-
+ 
 
 
 
