@@ -8,6 +8,10 @@ This is the official repository for the paper [Diffusion-based Conditional ECG G
   <img src="https://img.shields.io/badge/Dataset-10.6084%2Fm9.figshare.21922947-red" /></a>
 <a href="https://figshare.com/s/81834b24a4711c2a5c55" alt="GitHub issues by-label">
   <img src="https://img.shields.io/badge/Model-10.6084%2Fm9.figshare.21922875-red" /></a>
+  
+<a href="https://zenodo.org/account/settings/github/repository/AI4HealthUOL/SSSD-ECG" alt="GitHub issues by-label">
+  <img src="https://img.shields.io/badge/Code-10.5281%zenodo.7551714-blue" /></a>
+  
  
 
 ![alt text](https://github.com/AI4HealthUOL/SSSD-ECG/blob/main/clinical%20evaluation/diagnosis%20on%20normal%20samples/plots/reports/SSSD.png?style=centerme)
