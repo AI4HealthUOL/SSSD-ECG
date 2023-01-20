@@ -1,6 +1,6 @@
 # Diffusion-based Conditional ECG Generation with Structured State Space Models
 
-This is the official repository for the paper [Diffusion-based Conditional ECG Generation with Structured State Space Models](https://arxiv.org/abs/2208.09399). We propose diverse algorithms (primarly SSSD-ECG) for the generation of 12-lead ECG signals conditioned on disease labels.
+This is the official repository for the paper [Diffusion-based Conditional ECG Generation with Structured State Space Models](https://arxiv.org/abs/2301.08227). We propose diverse algorithms (primarly SSSD-ECG) for the generation of 12-lead ECG signals conditioned on disease labels.
 
 
 <a href="https://figshare.com/s/43df16e4a50e4dd0a0c5" alt="Dataset: https://figshare.com/s/43df16e4a50e4dd0a0c5">
@@ -17,15 +17,16 @@ This is the official repository for the paper [Diffusion-based Conditional ECG G
 ### Please cite our publication if you found our research to be helpful.
 
 ```bibtex
-@misc{https://doi.org/10.48550/arxiv.2208.09399,
-  doi = {10.48550/ARXIV.2208.09399},
-  url = {https://arxiv.org/abs/2208.09399},
+@misc{https://doi.org/10.48550/arxiv.2301.08227,
+  doi = {10.48550/ARXIV.2301.08227},
+  url = {https://arxiv.org/abs/2301.08227},
   author = {Alcaraz, Juan Miguel Lopez and Strodthoff, Nils},
-  keywords = {Machine Learning (cs.LG), Machine Learning (stat.ML), FOS: Computer and information sciences, FOS: Computer and information sciences},
-  title = {Diffusion-based Time Series Imputation and Forecasting with Structured State Space Models},
+  keywords = {Signal Processing (eess.SP), Machine Learning (cs.LG), Machine Learning (stat.ML), FOS: Electrical engineering, electronic engineering, information engineering, FOS: Electrical engineering, electronic engineering, information engineering, FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title = {Diffusion-based Conditional ECG Generation with Structured State Space Models},
   publisher = {arXiv},
-  year = {2022},
+  year = {2023},
   copyright = {arXiv.org perpetual, non-exclusive license}
 }
+
 
 ```
