@@ -1,6 +1,6 @@
 # Diffusion-based Conditional ECG Generation with Structured State Space Models
 
-This is the official repository for the paper [Diffusion-based Conditional ECG Generation with Structured State Space Models](https://arxiv.org/abs/2301.08227). We propose diverse algorithms (primarly SSSD-ECG) for the generation of 12-lead ECG signals conditioned on disease labels.
+This is the official repository for the paper [Diffusion-based Conditional ECG Generation with Structured State Space Models](https://arxiv.org/abs/2301.08227) <ins>accepted by Computers in Biology and Medicine</ins>. We propose diverse algorithms (primarly SSSD-ECG) for the generation of 12-lead ECG signals conditioned on disease labels.
 
 
 <a href="https://figshare.com/s/43df16e4a50e4dd0a0c5" alt="Dataset: https://figshare.com/s/43df16e4a50e4dd0a0c5">
@@ -17,16 +17,18 @@ This is the official repository for the paper [Diffusion-based Conditional ECG G
 ### Please cite our publication if you found our research to be helpful.
 
 ```bibtex
-@misc{https://doi.org/10.48550/arxiv.2301.08227,
-  doi = {10.48550/ARXIV.2301.08227},
-  url = {https://arxiv.org/abs/2301.08227},
-  author = {Alcaraz, Juan Miguel Lopez and Strodthoff, Nils},
-  keywords = {Signal Processing (eess.SP), Machine Learning (cs.LG), Machine Learning (stat.ML), FOS: Electrical engineering, electronic engineering, information engineering, FOS: Electrical engineering, electronic engineering, information engineering, FOS: Computer and information sciences, FOS: Computer and information sciences},
-  title = {Diffusion-based Conditional ECG Generation with Structured State Space Models},
-  publisher = {arXiv},
-  year = {2023},
-  copyright = {arXiv.org perpetual, non-exclusive license}
+@article{ALCARAZ2023107115,
+title = {Diffusion-based conditional ECG generation with structured state space models},
+journal = {Computers in Biology and Medicine},
+volume = {163},
+pages = {107115},
+year = {2023},
+issn = {0010-4825},
+doi = {https://doi.org/10.1016/j.compbiomed.2023.107115},
+url = {https://www.sciencedirect.com/science/article/pii/S0010482523005802},
+author = {Juan Miguel Lopez Alcaraz and Nils Strodthoff},
+keywords = {Cardiology, Electrocardiography, Signal processing, Synthetic data, Diffusion models, Time series},
+abstract = {Generating synthetic data is a promising solution for addressing privacy concerns that arise when distributing sensitive health data. In recent years, diffusion models have become the new standard for generating various types of data, while structured state space models have emerged as a powerful approach for capturing long-term dependencies in time series. Our proposed solution, SSSD-ECG, combines these two technologies to generate synthetic 12-lead electrocardiograms (ECGs) based on over 70 ECG statements. As reliable baselines are lacking, we also propose conditional variants of two state-of-the-art unconditional generative models. We conducted a thorough evaluation of the quality of the generated samples by assessing pre-trained classifiers on the generated data and by measuring the performance of a classifier trained only on synthetic data. SSSD-ECG outperformed its GAN-based competitors. Our approach was further validated through experiments that included conditional class interpolation and a clinical Turing test, which demonstrated the high quality of SSSD-ECG samples across a wide range of conditions.}
 }
-
 
 ```
