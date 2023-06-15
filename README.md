@@ -28,7 +28,6 @@ doi = {https://doi.org/10.1016/j.compbiomed.2023.107115},
 url = {https://www.sciencedirect.com/science/article/pii/S0010482523005802},
 author = {Juan Miguel Lopez Alcaraz and Nils Strodthoff},
 keywords = {Cardiology, Electrocardiography, Signal processing, Synthetic data, Diffusion models, Time series},
-abstract = {Generating synthetic data is a promising solution for addressing privacy concerns that arise when distributing sensitive health data. In recent years, diffusion models have become the new standard for generating various types of data, while structured state space models have emerged as a powerful approach for capturing long-term dependencies in time series. Our proposed solution, SSSD-ECG, combines these two technologies to generate synthetic 12-lead electrocardiograms (ECGs) based on over 70 ECG statements. As reliable baselines are lacking, we also propose conditional variants of two state-of-the-art unconditional generative models. We conducted a thorough evaluation of the quality of the generated samples by assessing pre-trained classifiers on the generated data and by measuring the performance of a classifier trained only on synthetic data. SSSD-ECG outperformed its GAN-based competitors. Our approach was further validated through experiments that included conditional class interpolation and a clinical Turing test, which demonstrated the high quality of SSSD-ECG samples across a wide range of conditions.}
 }
 
 ```
