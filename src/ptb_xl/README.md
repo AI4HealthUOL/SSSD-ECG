@@ -14,4 +14,4 @@ Open the jupyter notebook 'ecg_data_preprocessing.ipynb'
 
 Run the notebook, and the PTB-XL dataloaders are at the end.
 
-
+Note: these dataloaders are highly functional and allows you to have each patient metadata for further research, however, if you only want the signals and labels, you can also downdload from [here](https://mega.nz/folder/UfUDFYjS#YYUJ3CCUGb6ZNmJdCZLseg)
