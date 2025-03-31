@@ -27,7 +27,7 @@ class CondWaveGANGenerator(nn.Module):
     def __init__(self, model_size=50, ngpus=1, num_channels=8,
                  latent_dim=1000, post_proc_filt_len=512,
                  verbose=False, upsample=True):
-        super(WaveGANGenerator, self).__init__()
+        super(CondWaveGANGenerator, self).__init__()
         self.ngpus = ngpus
         self.model_size = model_size  # d
         self.num_channels = num_channels  # c
@@ -164,7 +164,7 @@ class PhaseRemove(nn.Module):
 class CondWaveGANDiscriminator(nn.Module):
     def __init__(self, model_size=64, ngpus=1, num_channels=8, shift_factor=2,
                  alpha=0.2, verbose=False):
-        super(WaveGANDiscriminator, self).__init__()
+        super(CondWaveGANDiscriminator, self).__init__()
         self.model_size = model_size  # d
         self.ngpus = ngpus
         self.num_channels = num_channels  # c
